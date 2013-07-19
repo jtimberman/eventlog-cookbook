@@ -18,12 +18,9 @@
 # limitations under the License.
 #
 
-gem_package "win32-eventlog" do
-  action :nothing
-end.run_action(:install)
-
-require 'rubygems'
-Gem.clear_paths
+chef_gem "win32-eventlog" do
+  action :install
+end
 
 cookbook_file "#{node['chef_handler']['handler_path']}/win32_eventlog_handler.rb" do
   source "handlers/win32_eventlog_handler.rb"
