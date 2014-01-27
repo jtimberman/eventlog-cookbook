@@ -27,7 +27,7 @@ module Opscode
       resources_updated = run_status.updated_resources.map {|r| r.to_s}
       el = EventLog.open("Chef")
       el.write(
-        :event_type => EventLog::INFO,
+        :event_type => EventLog::INFO_TYPE,
         :data => if run_status.success?
                    "Chef run complete in \n#{run_status.elapsed_time}\n#{resources_updated}"
                  else
